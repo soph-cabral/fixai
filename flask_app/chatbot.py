@@ -2,7 +2,7 @@
 import os
 import subprocess
 from typing import List
-from langchain.llms import Ollama
+from langchain_community.llms import Ollama
 
 # A module-level variable to hold the most recent image analysis
 latest_image_analysis = ""
