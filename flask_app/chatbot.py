@@ -44,15 +44,12 @@ def process_text(message: str) -> str:
     Respond to user queries about the images, 
     factoring in the previously stored analysis context.
     """
-    llm = Ollama(model="minicpm-v")
+    llm = Ollama(model="model")
 
     # Incorporate the prior image analysis into the prompt
     # so the LLM answers questions in context of the images
     contextual_prompt = (
-        f"Based on the previous image analysis:\n"
-        f"{latest_image_analysis}\n\n"
-        f"User's question: {message}\n"
-        "Answer as a helpful handyman, referencing the above analysis."
+        f"context"
     )
     
     response = llm(contextual_prompt)
