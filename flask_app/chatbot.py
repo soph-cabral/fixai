@@ -9,15 +9,7 @@ latest_image_analysis = ""
 
 def analyze_image(image_paths: List[str]) -> str:
     """
-    Analyze multiple images as a handyman bot.
-    
-    Steps:
-      - Look at all provided images (saved under "./uploads/").
-      - Provide a three-word description of the main household object or appliance.
-      - Analyze what may be broken about it.
-      - Ask: "I see this is wrong with the object, do you want to troubleshoot any of the conditions above?"
-
-    This final summary is stored in 'latest_image_analysis' for future text questions.
+    prompt here
     """
     valid_images = []
     for path in image_paths:
@@ -29,17 +21,13 @@ def analyze_image(image_paths: List[str]) -> str:
 
     # Construct a prompt that instructs Ollama to be a helpful handyman:
     prompt = (
-        f"You are a helpful handyman bot. The user has provided multiple images: {image_refs}.\n"
-        "1) Identify the main household object or appliance in each image, using three words max.\n"
-        "2) Analyze what may be broken about it.\n"
-        "3) Then ask: 'I see this is wrong with the object, do you want to troubleshoot any of the conditions above?'"
-        "\nCombine all into a single concise answer."
+        f"prompt here"
     )
     
     command = [
         "ollama",
         "run",
-        "minicpm-v",
+        "model",
         prompt
     ]
     res = subprocess.run(command, capture_output=True, text=True)
